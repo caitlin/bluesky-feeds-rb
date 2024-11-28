@@ -68,13 +68,13 @@ class FirehoseStream
   end
 
   def handle_message(msg)
-    if msg.is_a?(Skyfall::InfoMessage)
+    if msg.is_a?(Skyfall::Firehose::InfoMessage)
       # AtProto error, the only one right now is "OutdatedCursor"
       puts "InfoMessage: #{msg}"
-    elsif msg.is_a?(Skyfall::HandleMessage)
+    elsif msg.is_a?(Skyfall::Firehose::HandleMessage)
       # use these events if you want to track handle changes:
       # puts "Handle change: #{msg.repo} => #{msg.handle}"
-    elsif msg.is_a?(Skyfall::UnknownMessage)
+    elsif msg.is_a?(Skyfall::Firehose::UnknownMessage)
       puts "Unknown message type: #{msg.type}"
     end
 

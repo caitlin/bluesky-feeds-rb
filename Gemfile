@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem 'blue_factory', '~> 0.1', '>= 0.1.4'
-gem 'skyfall', '~> 0.2', '>= 0.2.3'
+gem 'skyfall', '~> 0.5'
 
 gem 'activerecord', '~> 6.0'
 gem 'sinatra-activerecord', '~> 2.0'
