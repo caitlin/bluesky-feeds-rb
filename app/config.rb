@@ -5,6 +5,8 @@ require 'sinatra/activerecord'
 
 ActiveRecord::Base.connection.execute "PRAGMA journal_mode = WAL"
 
+# find your did by visiting
+# https://bsky.social/xrpc/com.atproto.identity.resolveHandle?handle=<handle>
 BlueFactory.set :publisher_did, 'did:plc:<your_identifier_here>'
 BlueFactory.set :hostname, 'feeds.example.com'
 

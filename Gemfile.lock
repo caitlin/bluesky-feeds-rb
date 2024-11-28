@@ -13,6 +13,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     base32 (0.3.4)
+    base64 (0.2.0)
     blue_factory (0.1.4)
       sinatra (~> 3.0)
     capistrano (2.15.11)
@@ -21,7 +22,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    cbor (0.5.9.6)
+    cbor (0.5.9.8)
     concurrent-ruby (1.2.2)
     daemons (1.4.1)
     eventmachine (1.2.7)
@@ -31,6 +32,7 @@ GEM
     highline (2.1.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    mini_portile2 (2.8.8)
     minitest (5.20.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -55,12 +57,14 @@ GEM
     sinatra-activerecord (2.0.27)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
-    skyfall (0.2.3)
+    skyfall (0.5.0)
       base32 (~> 0.3, >= 0.3.4)
+      base64 (~> 0.1)
       cbor (~> 0.5, >= 0.5.9.6)
-      faye-websocket (~> 0.11.2)
-    sqlite3 (1.6.7-arm64-darwin)
-    sqlite3 (1.6.7-x86_64-linux)
+      eventmachine (~> 1.2, >= 1.2.7)
+      faye-websocket (~> 0.11)
+    sqlite3 (1.6.7)
+      mini_portile2 (~> 2.8.0)
     thin (1.8.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -84,7 +88,7 @@ DEPENDENCIES
   rainbow
   rake
   sinatra-activerecord (~> 2.0)
-  skyfall (~> 0.2, >= 0.2.3)
+  skyfall (~> 0.5)
   sqlite3
   thin
 

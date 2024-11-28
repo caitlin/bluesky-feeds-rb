@@ -29,7 +29,7 @@ class FirehoseStream
     last_cursor = load_or_init_cursor
     cursor = @replay_events ? last_cursor : nil
 
-    @sky = Skyfall::Stream.new(@service, :subscribe_repos, cursor)
+    @sky = Skyfall::Firehose.new(@service, :subscribe_repos, cursor)
 
     @sky.on_message do |m|
       handle_message(m)
@@ -68,13 +68,13 @@ class FirehoseStream
   end
 
   def handle_message(msg)
-    if msg.is_a?(Skyfall::InfoMessage)
+    if msg.is_a?(Skyfall::Firehose::InfoMessage)
       # AtProto error, the only one right now is "OutdatedCursor"
       puts "InfoMessage: #{msg}"
-    elsif msg.is_a?(Skyfall::HandleMessage)
+    elsif msg.is_a?(Skyfall::Firehose::HandleMessage)
       # use these events if you want to track handle changes:
       # puts "Handle change: #{msg.repo} => #{msg.handle}"
-    elsif msg.is_a?(Skyfall::UnknownMessage)
+    elsif msg.is_a?(Skyfall::Firehose::UnknownMessage)
       puts "Unknown message type: #{msg.type}"
     end
 
