@@ -14,3 +14,4 @@ BlueFactory.set :hostname, 'feeds.caitlin.cloud'
 # see Feed#get_posts(params, visitor_did) in app/feeds/feed.rb
 # BlueFactory.set :enable_unsafe_auth, true
 
+BlueFactory.add_feed 'survivor', SurvivorFeed.new
