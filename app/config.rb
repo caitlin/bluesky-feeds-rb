@@ -7,8 +7,8 @@ ActiveRecord::Base.connection.execute "PRAGMA journal_mode = WAL"
 
 # find your did by visiting
 # https://bsky.social/xrpc/com.atproto.identity.resolveHandle?handle=<handle>
-BlueFactory.set :publisher_did, 'did:plc:<your_identifier_here>'
-BlueFactory.set :hostname, 'feeds.example.com'
+BlueFactory.set :publisher_did, 'did:plc:by27rmmzs5sgto5pg3kqarbj'
+BlueFactory.set :hostname, 'feeds.caitlin.cloud'
 
 # uncomment to enable authentication (note: does not verify signatures)
 # see Feed#get_posts(params, visitor_did) in app/feeds/feed.rb

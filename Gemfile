@@ -8,8 +8,12 @@ gem 'sinatra-activerecord', '~> 2.0'
 gem 'sqlite3'
 gem 'rake'
 gem 'rainbow'
+gem 'puma'
 
 group :development do
   gem 'thin'
-  gem 'capistrano', '~> 2.0'
+  gem 'capistrano'
+  gem 'net-ssh'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end

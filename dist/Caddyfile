@@ -1,0 +1,10 @@
+feeds.caitlin.cloud {
+  reverse_proxy 127.0.0.1:9292
+
+  log {
+    output file /var/www/bsky_feeds/shared/log/access.log {
+      roll_size 10MB
+      roll_keep 10
+    }
+  }
+}
