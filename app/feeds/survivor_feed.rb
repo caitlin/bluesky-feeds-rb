@@ -2,8 +2,17 @@ require_relative 'feed'
 
 class SurvivorFeed < Feed
   REGEXPS = [
-    /\#survivor/i, /\#survivor47/i
+    # /\#survivor/i, /\#survivor47/i
   ]
+
+  TAGS = [
+    "survivor", "survivor47"
+  ]
+
+  MUTED_PROFILES = [
+    # List of dids
+  ]
+
 
   def feed_id
     1
@@ -14,7 +23,7 @@ class SurvivorFeed < Feed
   end
 
   def description
-    "Feed with posts mentioning #survivor, #survivor47, and from Survivor players"
+    "Feed featuring the tags #survivor and #survivor47"
   end
 
   def avatar_file
@@ -22,6 +31,10 @@ class SurvivorFeed < Feed
   end
 
   def post_matches?(post)
+    return false if MUTED_PROFILES.include?(post.repo)
+
+    return true if TAGS.any? { |tag| post.tags.include?(tag) }
+
     REGEXPS.any? { |r| post.text =~ r }
   end
 

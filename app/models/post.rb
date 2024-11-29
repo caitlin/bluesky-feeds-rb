@@ -20,6 +20,18 @@ class Post < ActiveRecord::Base
     @record ||= JSON.parse(data)
   end
 
+  def facets
+    @facets ||= record.dig('facets') || []
+  end
+
+  def tags
+    @tags ||= facets.flat_map do |facet|
+      facet.dig('features')
+        &.select{ |feature| feature['$type'] == 'app.bsky.richtext.facet#tag' }
+        &.map{ |feature| feature['tag']&.downcase }
+    end
+  end
+
   def at_uri
     "at://#{repo}/app.bsky.feed.post/#{rkey}"
   end
